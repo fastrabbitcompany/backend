@@ -1,7 +1,7 @@
 const AuthenticationRepository = require('./authentication');
-const AccountRepository = require('./account');
+const UserRepository = require('./user');
 
 module.exports = {
   AuthenticationRepository,
-  AccountRepository
+  UserRepository
 };

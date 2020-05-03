@@ -1,9 +1,9 @@
-const AccountRepository = require('../repositories').AccountRepository;
+const UserRepository = require('../repositories').UserRepository;
 
 module.exports.register = async (req, res) => {
   try {
     validateUserRequiredParameters(req.body);
-    await AccountRepository.create(req.body);
+    await UserRepository.create(req.body);
     res.json({
       success: true,
       message: 'user succesful created'

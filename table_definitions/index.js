@@ -1,7 +1,6 @@
-const AccountDefnition = require('./account');
 const AccountPublicDefnition = require('./account_public');
+const User = require('./user');
 
 module.exports = {
-  AccountDefnition,
-  AccountPublicDefnition,
+  User
 };

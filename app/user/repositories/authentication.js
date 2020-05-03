@@ -1,10 +1,10 @@
 let CryptographyAssistant = require('../assistants').CryptographyAssistant;
-let AccountRepository = require('./account');
+let UserRepository = require('./user');
 
 module.exports.checkToken = async function(token) {
   let decodedToken = CryptographyAssistant.getTokenInformation(token);
 
-  let account = await AccountRepository.findByEmail(decodedToken.email);
+  let account = await UserRepository.findByEmail(decodedToken.email);
   if (!account) throw Error('user does not exist');
 
   let isValid = token == account.token;
@@ -14,7 +14,7 @@ module.exports.checkToken = async function(token) {
 };
 
 module.exports.createToken = async function(accountData) {
-  const account = await AccountRepository.findByEmail(accountData.email);
+  const account = await UserRepository.findByEmail(accountData.email);
   if (!account) throw Error('wrong email');
 
   const encryptedPassword = CryptographyAssistant.encryptWithSHA2(
@@ -32,7 +32,7 @@ module.exports.createToken = async function(accountData) {
 };
 
 module.exports.deleteToken = async function(accountData) {
-  let currentAccount = await AccountRepository.findByEmail(accountData.email);
+  let currentAccount = await UserRepository.findByEmail(accountData.email);
   await currentAccount.update({ token: null });
 };
 

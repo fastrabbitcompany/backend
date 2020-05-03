@@ -16,12 +16,13 @@
     "jsonwebtoken": "8.5.1",
     "morgan": "~1.9.0",
     "mysql2": "^2.1.0",
-    "nodemon": "^1.18.10",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^5.8.6",
     "socket.io": "^2.3.0",
     "ts-md5": "^1.2.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
 }
