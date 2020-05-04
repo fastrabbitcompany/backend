@@ -1,61 +1,59 @@
-/* jshint indent: 2 */
-const Sequelize = require('sequelize');
+'use strict';
 
-module.exports = sequelize.define('user', {
-    id: {
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('User', {
+      id: {
         type: Sequelize.BIGINT,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
-    },
-    firstName: {
+      },
+      firstName: {
         type: Sequelize.STRING(50),
         allowNull: true
-    },
-    lastName: {
+      },
+      lastName: {
         type: Sequelize.STRING(50),
         allowNull: true
-    },
-    email: {
+      },
+      email: {
         type: Sequelize.STRING(50),
         allowNull: false,
         unique: true
-    },
-    phoneNumber: {
+      },
+      phoneNumber: {
         type: Sequelize.STRING,
         allowNull: true
-    },
-    address: {
+      },
+      address: {
         type: Sequelize.STRING(100),
         allowNull: true
-    },
-    photo: {
+      },
+      photo: {
         type: "LONGBLOB",
         allowNull: true
-    },
-    username: {
+      },
+      username: {
         type: Sequelize.STRING(20),
         allowNull: false,
         unique: true
-    },
-    password: {
+      },
+      password: {
         type: Sequelize.TEXT,
         allowNull: false
-    },      createdAt: {
-        type: Sequelize.DATEONLY,
-        allowNull: true,
-        defaultValue: Sequelize.fn('current_timestamp')
-    },
-    updatedAt: {
-        type: Sequelize.DATEONLY,
-        allowNull: true,
-        defaultValue: Sequelize.fn('current_timestamp')
-    },
-    isActive: {
+      },
+      isActive: {
         type: Sequelize.INTEGER(4),
         allowNull: true,
         defaultValue: '1'
-    }
-}, {
-    tableName: 'user'
-});
+      },
+      // Timestamps
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
+    });
+  },
+  down: (queryInterface) => {
+    return queryInterface.dropTable('user');
+  }
+}
