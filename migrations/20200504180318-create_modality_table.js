@@ -12,7 +12,10 @@ module.exports = {
       modalityName: {
         type: Sequelize.STRING(100),
         allowNull: false
-      }
+      },
+      // Timestamps
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
     })
   },
 
