@@ -5,5 +5,5 @@ var router = require('express').Router();
 // get the model
 const CityController = require('../controllers/index')
 
-router.get('/getall', CityController.getall);
+router.post('/getall', CityController.getall);
 module.exports = router;
