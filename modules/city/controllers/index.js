@@ -1,5 +1,5 @@
 const CityModel = require('../../../models/City')
-const ContryModel = require('../../../models/Contry')
+const ContryModel = require('../../../models/Country')
 const auth = require('../../auth')
 module.exports.getall = async (req, res) => {
     try {
