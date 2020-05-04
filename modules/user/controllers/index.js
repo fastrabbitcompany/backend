@@ -101,3 +101,35 @@ module.exports.checkToken = async (req, res) => {
     }
 }
 
+module.exports.getAllUsers = async (req, res) => {
+    try {
+        const data = req.body;
+        let {token} = data;
+        let username = await auth.checkToken(token);
+        let users = await EmployeeModel.findAll(
+            {
+                include: [
+                    {
+                        model: UserModel,
+                        as: "UserEmployee",
+                        required:false
+                    },
+                    {
+                        model: RoleModel,
+                        as: "RoleEmployee",
+                        required:false
+                    }
+                ]
+            });
+        res.json({
+            success: true,
+            users
+        })
+    } catch (e) {
+        res.status(400).json({
+            success: false,
+            message: e.message
+        });
+    }
+}
+

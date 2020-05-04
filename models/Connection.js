@@ -31,23 +31,23 @@ module.exports = module.exports = sequelize.define('Connection', {
         }
     },
     priceVolume: {
-        type: Sequelize.DECIMAL(20),
+        type: Sequelize.DECIMAL(19,4),
         allowNull: false
     },
     priceWeight: {
-        type: Sequelize.DECIMAL(20),
+        type: Sequelize.DECIMAL(19,4),
         allowNull: false
     },
     priceDistance: {
-        type: Sequelize.DECIMAL(20),
+        type: Sequelize.DECIMAL(19,4),
         allowNull: false
     },
     time: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.DECIMAL(19,4),
         allowNull: false
     },
     distance: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.DECIMAL(19,4),
         allowNull: false
     }
 }, {
