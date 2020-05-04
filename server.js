@@ -18,6 +18,7 @@ require('./database/relationships')();
 // routes
 const UserRoutes = require('./modules/user/routes')
 const CityRoutes = require('./modules/city/routes')
+const ConnectionRoutes = require('./modules/connection/routes')
 
 app.all("*",(req,res,next) =>{
     logger.info("Incoming request: ", {method: req.method});
@@ -31,6 +32,7 @@ app.all("*",(req,res,next) =>{
 
 app.use('/api/auth',UserRoutes);
 app.use('/api/city',CityRoutes);
+app.use('/api/connection',ConnectionRoutes);
 
 // initilize the app
 app.listen(port,() =>{
