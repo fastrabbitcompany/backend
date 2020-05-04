@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define('employee', {
+module.exports = sequelize.define('Employee', {
     employeeId: {
         type: Sequelize.BIGINT,
         allowNull: false,
