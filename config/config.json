@@ -1,12 +1,16 @@
 {
-  "development": {
+  "local": {
     "username": "root",
     "password": "",
     "database": "fastrabbit",
     "host": "localhost",
-    "dialect": "mysql",
-    "define": {
-      "timestamps": false
-    }
+    "dialect": "mysql"
+  },
+  "development": {
+    "username": "u513517312_rabbit",
+    "password": "rabbit1234",
+    "database": "u513517312_fastrabbitdb",
+    "host": "213.190.6.148",
+    "dialect": "mysql"
   }
 }
