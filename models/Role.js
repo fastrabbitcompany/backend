@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define('role', {
+module.exports = sequelize.define('Role', {
     roleId: {
         type: Sequelize.BIGINT,
         allowNull: false,
