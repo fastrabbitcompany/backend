@@ -17,6 +17,14 @@ module.exports = {
           key: 'id'
         }
       },
+      employeeRole:{
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        references: {
+          model: 'Role',
+          key: 'roleId'
+        }
+      },
       employeeDni: {
         type: Sequelize.STRING(50),
         allowNull: false

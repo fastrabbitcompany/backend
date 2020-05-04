@@ -1,5 +1,6 @@
 const UserModel = require('../../../models/User');
 const EmployeeModel = require('../../../models/Employee');
+const RoleModel = require('../../../models/Role')
 const auth = require('../../auth');
 //register method
 module.exports.register = async (req, res) => {
@@ -47,16 +48,30 @@ module.exports.login = async (req, res) => {
                 email,
                 id
             } = user;
-            let em = await UserModel.findAll({where: {id}, include: [{model: EmployeeModel, as: "UserToLogin"}]});
-            console.log(em.length);
-            let token = auth.createToken({username});
-            res.json({
-                success: true,
-                token,
-                rol: null,
-                username,
-                email
-            });
+            let EmployeeRole = await EmployeeModel.findOne(
+                {
+                    include: [
+                        {
+                            model: UserModel,
+                            as: "UserEmployee"
+                        },
+                        {
+                            model: RoleModel,
+                            as: "RoleEmployee"
+                        }
+                    ],
+                    where: {"employeeUser":id},
+                    attributes: [`RoleEmployee.roleName`]
+                });
+                let role = EmployeeRole ? EmployeeRole["RoleEmployee"]["roleName"]:null;
+                let token = auth.createToken({username});
+                res.json({
+                    success: true,
+                    token,
+                    role,
+                    username,
+                    email
+                });
         }
     } catch (e) {
         res.status(400).json({
