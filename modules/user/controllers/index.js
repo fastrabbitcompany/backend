@@ -6,7 +6,6 @@ const logger = require('../../../lib/logger')
 
 //register method
 module.exports.register = async (req, res) => {
-
     try {
 
         const data = req.body;

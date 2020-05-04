@@ -1,10 +1,710 @@
-{"0":"Incoming request: ","1":{"method":"POST"},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":7852,"level":30,"msg":"","time":"2020-05-04T14:48:53.306Z","v":0}
-{"0":"Incoming request verbose","1":{"headers":{"user-agent":"PostmanRuntime/7.24.1","accept":"*/*","postman-token":"35ed4dec-40aa-43cc-b26f-dff9bb23ba18","host":"localhost:3000","accept-encoding":"gzip, deflate, br","connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"50"},"query":{},"body":{"email":"*****","password":"*****"}},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":7852,"level":30,"msg":"","time":"2020-05-04T14:48:53.308Z","v":0}
-{"0":"Incoming request: ","1":{"method":"POST"},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T14:58:18.526Z","v":0}
-{"0":"Incoming request verbose","1":{"headers":{"user-agent":"PostmanRuntime/7.24.1","accept":"*/*","postman-token":"287d2627-77dd-4ba2-ab6d-b098d490b7b2","host":"localhost:3000","accept-encoding":"gzip, deflate, br","connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"49"},"query":{},"body":{"email":"*****","password":"*****"}},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T14:58:18.527Z","v":0}
-{"0":"Incoming request: ","1":{"method":"POST"},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T14:59:04.037Z","v":0}
-{"0":"Incoming request verbose","1":{"headers":{"user-agent":"PostmanRuntime/7.24.1","accept":"*/*","postman-token":"48a1843e-40fe-4ef7-b3c0-1b91c1953e3c","host":"localhost:3000","accept-encoding":"gzip, deflate, br","connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"48"},"query":{},"body":{"email":"*****","password":"*****"}},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T14:59:04.037Z","v":0}
-{"0":"Incoming request: ","1":{"method":"POST"},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T14:59:24.035Z","v":0}
-{"0":"Incoming request verbose","1":{"headers":{"user-agent":"PostmanRuntime/7.24.1","accept":"*/*","postman-token":"0f37d2f0-9cd5-4a93-99dd-838ba3bc4d53","host":"localhost:3000","accept-encoding":"gzip, deflate, br","connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"50"},"query":{},"body":{"email":"*****","password":"*****"}},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T14:59:24.036Z","v":0}
-{"0":"Incoming request: ","1":{"method":"POST"},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T15:00:37.555Z","v":0}
-{"0":"Incoming request verbose","1":{"headers":{"user-agent":"PostmanRuntime/7.24.1","accept":"*/*","postman-token":"515bf285-e5ee-48e0-b250-d9402b7e307a","host":"localhost:3000","accept-encoding":"gzip, deflate, br","connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"46"},"query":{},"body":{"email":"*****","password":"*****"}},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":25660,"level":30,"msg":"","time":"2020-05-04T15:00:37.556Z","v":0}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 7852,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:48:53.306Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "35ed4dec-40aa-43cc-b26f-dff9bb23ba18",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "50"
+    },
+    "query": {},
+    "body": {
+      "email": "*****",
+      "password": "*****"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 7852,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:48:53.308Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:58:18.526Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "287d2627-77dd-4ba2-ab6d-b098d490b7b2",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "49"
+    },
+    "query": {},
+    "body": {
+      "email": "*****",
+      "password": "*****"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:58:18.527Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:59:04.037Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "48a1843e-40fe-4ef7-b3c0-1b91c1953e3c",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "48"
+    },
+    "query": {},
+    "body": {
+      "email": "*****",
+      "password": "*****"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:59:04.037Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:59:24.035Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "0f37d2f0-9cd5-4a93-99dd-838ba3bc4d53",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "50"
+    },
+    "query": {},
+    "body": {
+      "email": "*****",
+      "password": "*****"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T14:59:24.036Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:00:37.555Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "515bf285-e5ee-48e0-b250-d9402b7e307a",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "46"
+    },
+    "query": {},
+    "body": {
+      "email": "*****",
+      "password": "*****"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 25660,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:00:37.556Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 16416,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:40:20.331Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "cefbea62-d0f6-4c6e-89fd-be65549a10d8",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "145"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvdGFsb3JhZm94IiwiaWF0IjoxNTg4NTczNDYyfQ.4Bm886ZQv3NJWu7_kNqOOhM2LcIMI8f2yp6yNzzf1FI"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 16416,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:40:20.333Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 16416,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:40:24.913Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "6ce26698-3374-4e3a-894b-8e44c1cdd1cf",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "146"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IskpXVCJ9.eyJ1c2VybmFtZSI6ImxvdGFsb3JhZm94IiwiaWF0IjoxNTg4NTczNDYyfQ.4Bm886ZQv3NJWu7_kNqOOhM2LcIMI8f2yp6yNzzf1FI"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 16416,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:40:24.914Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 18356,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:42:14.833Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "03bb7e14-c5c2-4de7-a359-f9395f397cf0",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "146"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IskpXVCJ9.eyJ1c2VybmFtZSI6ImxvdGFsb3JhZm94IiwiaWF0IjoxNTg4NTczNDYyfQ.4Bm886ZQv3NJWu7_kNqOOhM2LcIMI8f2yp6yNzzf1FI"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 18356,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:42:14.834Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "POST"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 18356,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:42:20.117Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "8797803a-47fe-4211-ad72-387f80791621",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "46"
+    },
+    "query": {},
+    "body": {
+      "email": "*****",
+      "password": "*****"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 18356,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:42:20.117Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 4612,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:43:55.025Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "6f25aba1-6cf5-42a5-8c8b-b23608963af1",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 4612,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:43:55.027Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 17940,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:44:36.650Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "57a84452-7fa3-485e-8ee0-7823670318b2",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 17940,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:44:36.651Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 3512,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:53:02.136Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "b93d271b-393d-45b3-b4de-cba8095ac6b7",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 3512,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:53:02.139Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 3512,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:53:03.661Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "cea62153-3621-416a-89fc-f0adb3f66328",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 3512,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:53:03.661Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 10424,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:54:35.660Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "0f5bcb5c-e6fd-4245-8366-1845a44fcc9b",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 10424,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:54:35.662Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:03.658Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "01268029-14e8-4cdc-bbe9-51731437cbe4",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:03.660Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:41.022Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "f518feee-51c8-4fb8-82e6-8f50e7aa44d5",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:41.023Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:45.129Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "8e22d412-0368-4f7e-90a4-1f4a456cc520",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "164"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJd9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:45.130Z",
+  "v": 0
+}
+{
+  "0": "Incoming request: ",
+  "1": {
+    "method": "GET"
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:50.362Z",
+  "v": 0
+}
+{
+  "0": "Incoming request verbose",
+  "1": {
+    "headers": {
+      "user-agent": "PostmanRuntime/7.24.1",
+      "accept": "*/*",
+      "postman-token": "4bd069ed-973a-499b-aecd-405f845d723a",
+      "host": "localhost:3000",
+      "accept-encoding": "gzip, deflate, br",
+      "connection": "keep-alive",
+      "content-type": "application/x-www-form-urlencoded",
+      "content-length": "163"
+    },
+    "query": {},
+    "body": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"
+    }
+  },
+  "name": "fastrabbit",
+  "hostname": "DESKTOP-MA4T7KK",
+  "pid": 22768,
+  "level": 30,
+  "msg": "",
+  "time": "2020-05-04T15:55:50.363Z",
+  "v": 0
+}
+{"0":"Incoming request: ","1":{"method":"GET"},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":12576,"level":30,"msg":"","time":"2020-05-04T16:01:38.378Z","v":0}
+{"0":"Incoming request verbose","1":{"headers":{"user-agent":"PostmanRuntime/7.24.1","accept":"*/*","postman-token":"b93f11c3-ff98-4aee-886e-d51102a786a6","host":"localhost:3000","accept-encoding":"gzip, deflate, br","connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"163"},"query":{},"body":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R0ZXN0IiwiaWF0IjoxNTg4NjA2OTQxLCJleHAiOjE1ODg2OTMzNDF9.PeixFp5mvixUaxDPYC86WHalcHsIkrzJFUMQtu3NoQg"}},"name":"fastrabbit","hostname":"DESKTOP-MA4T7KK","pid":12576,"level":30,"msg":"","time":"2020-05-04T16:01:38.379Z","v":0}

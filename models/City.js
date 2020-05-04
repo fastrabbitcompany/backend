@@ -14,7 +14,7 @@ module.exports = module.exports = sequelize.define('City', {
             model: 'Country',
             key: 'countryId'
         },
-        unique: true
+        unique: false
     },
     cityName: {
         type: Sequelize.STRING(100),

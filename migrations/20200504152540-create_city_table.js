@@ -16,7 +16,7 @@ module.exports = {
           model: 'Country',
           key: 'countryId'
         },
-        unique: true
+        unique: false
       },
       cityName: {
         type: Sequelize.STRING(100),
@@ -25,7 +25,10 @@ module.exports = {
       cityCode: {
         type: Sequelize.STRING(100),
         allowNull: false
-      }
+      },
+      // Timestamps
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
     })
   },
 
