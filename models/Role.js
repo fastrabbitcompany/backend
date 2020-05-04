@@ -16,5 +16,5 @@ module.exports = sequelize.define('role', {
         allowNull: true
     }
 }, {
-    tableName: 'role'
+    tableName: 'Role'
 });

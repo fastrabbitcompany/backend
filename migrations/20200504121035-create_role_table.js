@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(
-        'role', {
+        'Role', {
           roleId: {
             type: Sequelize.BIGINT,
             allowNull: false,

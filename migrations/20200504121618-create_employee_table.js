@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('employee', {
+    return queryInterface.createTable('Employee', {
       employeeId: {
         type: Sequelize.BIGINT,
         allowNull: false,

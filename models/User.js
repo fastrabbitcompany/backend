@@ -57,5 +57,5 @@ module.exports = sequelize.define('user', {
         defaultValue: '1'
     }
 }, {
-    tableName: 'user'
+    tableName: 'User'
 });

@@ -37,5 +37,5 @@ module.exports = sequelize.define('employee', {
         allowNull: true
     },
 }, {
-    tableName: 'employee'
+    tableName: 'Employee'
 });
