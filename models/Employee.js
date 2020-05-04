@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Employee', {
+  let Employee = sequelize.define('Employee', {
     employeeId: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {
-        model: 'Users',
+        model: 'User',
         key: 'id'
       }
     },
@@ -28,14 +28,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATEONLY,
       allowNull: true
     },
-    employeeCreatedBy: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: 'Employee',
-        key: 'employeeId'
-      }
-    },
     employeeIsActive: {
       type: DataTypes.BOOLEAN,
       allowNull: true
@@ -43,4 +35,5 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     tableName: 'Employee'
   });
+  return Employee
 };

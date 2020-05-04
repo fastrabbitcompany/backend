@@ -15,7 +15,7 @@ const port = 3000;
 
 // DataBase
 const db = require('./models')
-//app.use('/api/auth', UserRoutes);
+
 app.use('/api/auth',UserRoutes);
 
 // initilize the app

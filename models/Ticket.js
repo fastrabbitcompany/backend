@@ -28,8 +28,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {
-        model: 'Shipping',
-        key: 'shippingId'
+        model: 'User',
+        key: 'id'
       }
     },
     ticketStatus: {

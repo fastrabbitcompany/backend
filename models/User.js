@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users', {
+  const User = sequelize.define('User', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -21,12 +21,20 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true
     },
+    phoneNumber: {
+      type: DataTypes.STRING,
+          allowNull: true
+    },
+    address: {
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
     photo: {
       type: "LONGBLOB",
       allowNull: true
     },
     username: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.STRING(20),
       allowNull: false,
       unique: true
     },
@@ -45,6 +53,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '1'
     }
   }, {
-    tableName: 'Users'
+    tableName: 'User'
   });
+  return User
 };
