@@ -1,6 +1,6 @@
 //imports
 const express = require('express');
-const cors = require('express');
+const cors = require('cors');
 const logger = require('./lib/logger')
 //initialize the app
 const app = express();
