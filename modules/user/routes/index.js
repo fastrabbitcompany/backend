@@ -6,7 +6,7 @@ var router = require('express').Router();
 const UserController = require('../controllers/index')
 
 
-router.post('/sing-up', UserController.register);
+router.post('/sign-up', UserController.register);
 router.post('/login', UserController.login);
 router.post('/check',UserController.checkToken)
 module.exports = router;
