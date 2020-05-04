@@ -2,7 +2,7 @@ const ConnectionModel = require('../../../models/Connection');
 const auth = require('../../auth');
 module.exports.getQuote = async (req, res) => {
     try {
-        const {token,origen,destino,type,volumen} = req.body;
+        const {token,origen,destino,type,volumen,peso} = req.body;
         await  auth.checkToken(token);
         let connection = await ConnectionModel.findOne(
             {
@@ -13,12 +13,12 @@ module.exports.getQuote = async (req, res) => {
                 }
             }
         );
-        let vol = volumen*connection.price;
+        let price = parseInt(volumen)*parseInt(connection.priceVolume) + parseInt(peso)*parseInt(connection.priceWeight) + parseInt(connection.priceDistance);
         res.json({
             success: true,
             time:connection.time,
             distance:connection.distance,
-            price:vol
+            price
         });
     } catch (error) {
         res.status(400).json({
