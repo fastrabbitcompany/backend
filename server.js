@@ -1,8 +1,7 @@
 //imports
 const express = require('express');
 const cors = require('express');
-
-
+const logger = require('./lib/logger')
 //initialize the app
 const app = express();
 //initial settings
@@ -19,6 +18,15 @@ require('./database/relationships')();
 // routes
 const UserRoutes = require('./modules/user/routes')
 
+app.all("*",(req,res,next) =>{
+    logger.info("Incoming request: ", {method: req.method});
+    logger.info("Incoming request verbose",{
+        headers:req.headers,
+        query:req.query,
+        body:req.body
+    });
+    return next();
+})
 
 app.use('/api/auth',UserRoutes);
 

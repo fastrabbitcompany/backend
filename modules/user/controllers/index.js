@@ -2,9 +2,13 @@ const UserModel = require('../../../models/User');
 const EmployeeModel = require('../../../models/Employee');
 const RoleModel = require('../../../models/Role')
 const auth = require('../../auth');
+const logger = require('../../../lib/logger')
+
 //register method
 module.exports.register = async (req, res) => {
+
     try {
+
         const data = req.body;
         validateRegister(data);
         await UserModel.create(data);
