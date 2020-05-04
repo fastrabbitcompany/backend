@@ -4,17 +4,17 @@ module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('Country', {
                 countryId: {
-                    type: DataTypes.BIGINT,
+                    type: Sequelize.BIGINT,
                     allowNull: false,
                     primaryKey: true,
                     autoIncrement: true
                 },
                 countryCode: {
-                    type: DataTypes.STRING(100),
+                    type: Sequelize.STRING(100),
                     allowNull: false
                 },
                 countryName: {
-                    type: DataTypes.STRING(100),
+                    type: Sequelize.STRING(100),
                     allowNull: false
                 },
                 // Timestamps

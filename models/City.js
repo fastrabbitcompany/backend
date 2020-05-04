@@ -1,14 +1,14 @@
 const Sequelize = require('sequelize');
 
-module.exports = module.exports = sequelize.define('role', {
+module.exports = module.exports = sequelize.define('City', {
     cityId: {
-        type: DataTypes.BIGINT,
+        type: Sequelize.BIGINT,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
     cityCountry: {
-        type: DataTypes.BIGINT,
+        type: Sequelize.BIGINT,
         allowNull: false,
         references: {
             model: 'Country',
@@ -17,11 +17,11 @@ module.exports = module.exports = sequelize.define('role', {
         unique: true
     },
     cityName: {
-        type: DataTypes.STRING(100),
+        type: Sequelize.STRING(100),
         allowNull: false
     },
     cityCode: {
-        type: DataTypes.STRING(100),
+        type: Sequelize.STRING(100),
         allowNull: false
     }
 }, {

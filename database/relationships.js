@@ -1,8 +1,9 @@
 //import models
-const User = require('../models/User')
-const Employee = require('../models/Employee')
-const Role = require('../models/Role')
-
+const User = require('../models/User');
+const Employee = require('../models/Employee');
+const Role = require('../models/Role');
+const City = require('../models/City');
+const Country = require('../models/County');
 
 module.exports = async () =>{
     //create the relations
@@ -12,5 +13,7 @@ module.exports = async () =>{
     // Employee -> Role
     Employee.belongsTo(Role,{as:"RoleEmployee",foreignKey:"employeeRole"});
     Role.hasMany(Employee,{as:"RoleEmployee",foreignKey:"employeeRole"})
-
+    //Countru <- City
+    City.belongsTo(Country,{as:"CityCountry",foreignKey:"cityCountry"});
+    Country.hasMany(City,{as:"Cities",foreignKey:"cityCountry"});
 };
