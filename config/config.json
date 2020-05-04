@@ -4,20 +4,9 @@
     "password": "",
     "database": "fastrabbit",
     "host": "localhost",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "u513517312_rabbit",
-    "password": "rabbit1234",
-    "database": "u513517312_fastrabbitdb",
-    "host": "213.190.6.148",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "u513517312_rabbit",
-    "password": "rabbit1234",
-    "database": "u513517312_fastrabbitdb",
-    "host": "213.190.6.148",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "timestamps": false
+    }
   }
 }

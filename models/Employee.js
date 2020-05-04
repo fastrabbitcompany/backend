@@ -1,46 +1,41 @@
 /* jshint indent: 2 */
+const Sequelize = require('sequelize');
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Employee', {
+module.exports = sequelize.define('employee', {
     employeeId: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
     },
     employeeUser: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      references: {
-        model: 'Users',
-        key: 'id'
-      }
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        references: {
+            model: 'User',
+            key: 'id'
+        }
+    },
+    employeeRole:{
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        references: {
+            model: 'Role',
+            key: 'roleId'
+        }
     },
     employeeDni: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+        type: Sequelize.STRING(50),
+        allowNull: false
     },
     employeePin: {
-      type: DataTypes.STRING(4),
-      allowNull: false
-    },
-    employeeCreatedAt: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    employeeCreatedBy: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: 'Employee',
-        key: 'employeeId'
-      }
+        type: Sequelize.STRING(4),
+        allowNull: false
     },
     employeeIsActive: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    }
-  }, {
-    tableName: 'Employee'
-  });
-};
+        type: Sequelize.BOOLEAN,
+        allowNull: true
+    },
+}, {
+    tableName: 'employee'
+});
