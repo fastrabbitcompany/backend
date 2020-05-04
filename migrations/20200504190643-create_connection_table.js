@@ -33,8 +33,16 @@ module.exports = {
                     key: 'modalityId'
                 }
             },
-            price: {
-                type: Sequelize.DECIMAL,
+            priceVolume: {
+                type: Sequelize.DECIMAL(20),
+                allowNull: false
+            },
+            priceWeight: {
+                type: Sequelize.DECIMAL(20),
+                allowNull: false
+            },
+            priceDistance: {
+                type: Sequelize.DECIMAL(20),
                 allowNull: false
             },
             time: {
