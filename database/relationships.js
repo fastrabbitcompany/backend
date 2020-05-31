@@ -7,9 +7,9 @@ const Country = require('../models/Country');
 const Location = require('../models/Location')
 const Modality = require('../models/Modality')
 const Connection = require('../models/Connection')
-
-
-
+const Route = require('../models/Route')
+const Shipping = require('../models/Route')
+const ShippingStatusHistory = require('../models/ShippingStatusHistory')
 module.exports = async () =>{
     //create the relations
     // User <- Employee
@@ -33,5 +33,27 @@ module.exports = async () =>{
     //Connection -> Modality
     Connection.belongsTo(Modality,{as:"ConnectionModality",foreignKey:"connectionModality"});
     Modality.hasMany(Connection,{as:"ModalityConnection",foreignKey:"connectionModality"});
+    //Route -> Connection
+    Route.belongsTo(Connection,{as:"RouteHasConnection",foreignKey:"routeConnection"});
+    Connection.hasMany(Route,{as:"RouteConnection",foreignKey:"routeConnection"});
+    //Route -> Location
+    Route.belongsTo(Location,{as:"RouteHasLocation",foreignKey:"routeLocation"});
+    Location.hasMany(Route,{as:"RouteLocation",foreignKey:"routeLocation"});
+    //Connection -> Shipping
+    Shipping.belongsTo(Connection,{as:"ShippingHasConnection",foreignKey:"shippingConnection"});
+    Connection.hasMany(Shipping,{as:"ShippingConnection",foreignKey:"shippingConnection"});
+    //User -> Shipping
+    Shipping.belongsTo(User,{as:"ShippingHasUser",foreignKey:"shippingOwner"});
+    User.hasMany(Shipping,{as:"UserShipping",foreignKey:"shippingOwner"});
+    //ShippingStatusHistory -> Shipping
+    ShippingStatusHistory.belongsTo(Shipping,{as:"ShippingStatusHistoryHasShipping",foreignKey:"shippingStatusHistoryShipping"});
+    Shipping.hasMany(ShippingStatusHistory,{as:"ShippingShippingStatusHistory",foreignKey:"shippingStatusHistoryShipping"});
+    //ShippingStatusHistory -> employee
+    ShippingStatusHistory.belongsTo(Employee,{foreignKey:"shippingStatusHistoryEmployee"});
+    Employee.hasMany(ShippingStatusHistory,{foreignKey:"shippingStatusHistoryEmployee"});
+    //ShippingStatusHistory -> route
+    ShippingStatusHistory.belongsTo(Route,{foreignKey:"shippingStatusHistoryRoute"});
+    Route.hasMany(ShippingStatusHistory,{foreignKey:"shippingStatusHistoryRoute"});
+
 };
 
