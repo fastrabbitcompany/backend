@@ -14,7 +14,7 @@ module.exports.createEmployee = async (req, res) => {
         await EmployeeModel.create({...data,employeeUser:createduser.id});
         res.json({
             success: true,
-            message: 'user and employeesuccessfully created'
+            message: 'user and employee successfully created'
         });
     } catch (error) {
         res.status(400).json({
@@ -59,3 +59,22 @@ module.exports.getAllEmployees = async (req, res) => {
     }
 }
 
+module.exports.updateEmployee = async (req, res) => {
+    try {
+       
+        const data = req.body;
+        //Util.validateRegister(data);
+        const  updateduser = await UserModel.findOne({ where: { username: data.username }})
+        await UserModel.update(data,{ where: { username: data.username } });
+        await EmployeeModel.update(data,{ where:  { employeeUser: updateduser.id}  } );
+        res.json({
+            success: true,
+            message: 'user and employee successfully updated'
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
