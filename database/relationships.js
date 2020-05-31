@@ -7,7 +7,7 @@ const Country = require('../models/Country');
 const Location = require('../models/Location')
 const Modality = require('../models/Modality')
 const Connection = require('../models/Connection')
-
+const Route = require('../models/Route')
 
 
 module.exports = async () =>{
@@ -33,5 +33,11 @@ module.exports = async () =>{
     //Connection -> Modality
     Connection.belongsTo(Modality,{as:"ConnectionModality",foreignKey:"connectionModality"});
     Modality.hasMany(Connection,{as:"ModalityConnection",foreignKey:"connectionModality"});
+    //Route -> Connection
+    Route.belongsTo(Connection,{as:"RouteHasConnection",foreignKey:"routeConnection"});
+    Connection.hasMany(Route,{as:"RouteConnection",foreignKey:"routeConnection"});
+    //Route -> Location
+    Route.belongsTo(Location,{as:"RouteHasLocation",foreignKey:"routeLocation"});
+    Location.hasMany(Route,{as:"RouteLocation",foreignKey:"routeLocation"});
 };
 
