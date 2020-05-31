@@ -11,6 +11,7 @@ module.exports.register = async (req, res) => {
         const data = req.body;
         validateRegister(data);
         await UserModel.create(data);
+        UserModel.create(data)
         res.json({
             success: true,
             message: 'user successfully created'
@@ -92,38 +93,6 @@ module.exports.checkToken = async (req, res) => {
         res.json({
             success: true,
             username
-        })
-    } catch (e) {
-        res.status(400).json({
-            success: false,
-            message: e.message
-        });
-    }
-}
-
-module.exports.getAllUsers = async (req, res) => {
-    try {
-        const data = req.body;
-        let {token} = data;
-        let username = await auth.checkToken(token);
-        let users = await EmployeeModel.findAll(
-            {
-                include: [
-                    {
-                        model: UserModel,
-                        as: "UserEmployee",
-                        required:false
-                    },
-                    {
-                        model: RoleModel,
-                        as: "RoleEmployee",
-                        required:false
-                    }
-                ]
-            });
-        res.json({
-            success: true,
-            users
         })
     } catch (e) {
         res.status(400).json({
