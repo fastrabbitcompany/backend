@@ -3,13 +3,13 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('ShippingStatusHistory',{
-      ShippingStatusHistoryId: {
+      shippingStatusHistoryId: {
         type: Sequelize.BIGINT,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
-      ShippingStatusHistoryShipping: {
+      shippingStatusHistoryShipping: {
         type: Sequelize.BIGINT,
         allowNull: false,
         references:{
@@ -17,7 +17,7 @@ module.exports = {
           key:'shippingId'
         }
       },
-      ShippingStatusHistoryRoute: {
+      shippingStatusHistoryRoute: {
         type: Sequelize.BIGINT,
         allowNull: false,
         references:{
@@ -25,7 +25,7 @@ module.exports = {
           key:"routeId"
         }
       },
-      ShippingStatusHistoryEmployee:{
+      shippingStatusHistoryEmployee:{
         type: Sequelize.BIGINT,
         allowNull: false,
         references:{
@@ -33,10 +33,13 @@ module.exports = {
           key:"employeeId"
         }
       },
-      ShippingStatusHistoryStatus:{
+      shippingStatusHistoryStatus:{
         type: Sequelize.INTEGER,
         allowNull: false
-      }
+      },
+      // Timestamps
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
     })
   },
 

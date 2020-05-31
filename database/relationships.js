@@ -9,7 +9,7 @@ const Modality = require('../models/Modality')
 const Connection = require('../models/Connection')
 const Route = require('../models/Route')
 const Shipping = require('../models/Route')
-
+const ShippingStatusHistory = require('../models/ShippingStatusHistory')
 module.exports = async () =>{
     //create the relations
     // User <- Employee
@@ -45,5 +45,15 @@ module.exports = async () =>{
     //User -> Shipping
     Shipping.belongsTo(User,{as:"ShippingHasUser",foreignKey:"shippingOwner"});
     User.hasMany(Shipping,{as:"UserShipping",foreignKey:"shippingOwner"});
+    //ShippingStatusHistory -> Shipping
+    ShippingStatusHistory.belongsTo(Shipping,{as:"ShippingStatusHistoryHasShipping",foreignKey:"shippingStatusHistoryShipping"});
+    Shipping.hasMany(ShippingStatusHistory,{as:"ShippingShippingStatusHistory",foreignKey:"shippingStatusHistoryShipping"});
+    //ShippingStatusHistory -> employee
+    ShippingStatusHistory.belongsTo(Employee,{foreignKey:"shippingStatusHistoryEmployee"});
+    Employee.hasMany(ShippingStatusHistory,{foreignKey:"shippingStatusHistoryEmployee"});
+    //ShippingStatusHistory -> route
+    ShippingStatusHistory.belongsTo(Route,{foreignKey:"shippingStatusHistoryRoute"});
+    Route.hasMany(ShippingStatusHistory,{foreignKey:"shippingStatusHistoryRoute"});
+
 };
 
