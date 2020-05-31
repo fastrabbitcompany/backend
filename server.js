@@ -16,23 +16,25 @@ require('./database/connection');
 require('./database/relationships')();
 
 // routes
-const UserRoutes = require('./modules/user/routes')
-const CityRoutes = require('./modules/city/routes')
-const ConnectionRoutes = require('./modules/connection/routes')
+const AdminRoutes = require('./modules/admin/routes');
+const UserRoutes = require('./modules/user/routes');
+const CityRoutes = require('./modules/city/routes');
+const ConnectionRoutes = require('./modules/connection/routes');
 
 app.all("*",(req,res,next) =>{
     logger.info("Incoming request: ", {method: req.method});
-    logger.info("Incoming request verbose",{
+ /*   logger.info("Incoming request verbose",{
         headers:req.headers,
         query:req.query,
         body:req.body
-    });
+    }); */
     return next();
 })
 
 app.use('/api/auth',UserRoutes);
 app.use('/api/city',CityRoutes);
 app.use('/api/connection',ConnectionRoutes);
+app.use('/api/admin',AdminRoutes);
 
 // initilize the app
 app.listen(port,() =>{
