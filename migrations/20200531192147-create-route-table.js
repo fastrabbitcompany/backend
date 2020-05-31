@@ -2,7 +2,7 @@
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        queryInterface.createTable('Route', {
+        return queryInterface.createTable('Route', {
             routeId: {
                 type: Sequelize.BIGINT,
                 allowNull: false,
@@ -36,6 +36,6 @@ module.exports = {
     },
 
     down: (queryInterface, Sequelize) => {
-        queryInterface.dropTable('Route')
+        return queryInterface.dropTable('Route')
     }
 };

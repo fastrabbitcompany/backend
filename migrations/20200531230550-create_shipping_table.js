@@ -2,7 +2,7 @@
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        queryInterface.createTable('Shipping', {
+        return queryInterface.createTable('Shipping', {
             shippingId: {
                 type: Sequelize.BIGINT,
                 allowNull: false,
@@ -37,6 +37,6 @@ module.exports = {
     },
 
     down: (queryInterface, Sequelize) => {
-        queryInterface.dropTable('Shipping')
+        return queryInterface.dropTable('Shipping')
     }
 };

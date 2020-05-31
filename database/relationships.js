@@ -8,7 +8,7 @@ const Location = require('../models/Location')
 const Modality = require('../models/Modality')
 const Connection = require('../models/Connection')
 const Route = require('../models/Route')
-
+const Shipping = require('../models/Route')
 
 module.exports = async () =>{
     //create the relations
@@ -39,5 +39,11 @@ module.exports = async () =>{
     //Route -> Location
     Route.belongsTo(Location,{as:"RouteHasLocation",foreignKey:"routeLocation"});
     Location.hasMany(Route,{as:"RouteLocation",foreignKey:"routeLocation"});
+    //Connection -> Shipping
+    Shipping.belongsTo(Connection,{as:"ShippingHasConnection",foreignKey:"shippingConnection"});
+    Connection.hasMany(Shipping,{as:"ShippingConnection",foreignKey:"shippingConnection"});
+    //User -> Shipping
+    Shipping.belongsTo(User,{as:"ShippingHasUser",foreignKey:"shippingOwner"});
+    User.hasMany(Shipping,{as:"UserShipping",foreignKey:"shippingOwner"});
 };
 
