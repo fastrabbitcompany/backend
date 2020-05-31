@@ -7,5 +7,6 @@ const adminController = require('../controllers/index')
 
 router.post('/Employee',adminController.createEmployee)
 router.get('/Employee',adminController.getAllEmployees)
+router.put('/Employee',adminController.updateEmployee)
 
 module.exports = router;
