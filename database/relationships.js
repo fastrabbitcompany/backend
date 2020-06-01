@@ -40,11 +40,11 @@ module.exports = async () =>{
     Route.belongsTo(Location,{as:"RouteHasLocation",foreignKey:"routeLocation"});
     Location.hasMany(Route,{as:"RouteLocation",foreignKey:"routeLocation"});
     //Connection -> Shipping
-    Shipping.belongsTo(Connection,{as:"ShippingHasConnection",foreignKey:"shippingConnection"});
-    Connection.hasMany(Shipping,{as:"ShippingConnection",foreignKey:"shippingConnection"});
+    Connection.belongsTo(Shipping,{as:"ShippingHasConnection",foreignKey:"shippingConnection"});
+    Shipping.hasMany(Connection,{as:"ShippingConnection",foreignKey:"shippingConnection"});
     //User -> Shipping
-    Shipping.belongsTo(User,{as:"ShippingHasUser",foreignKey:"shippingOwner"});
-    User.hasMany(Shipping,{as:"UserShipping",foreignKey:"shippingOwner"});
+    User.belongsTo(Shipping,{as:"ShippingHasUser",foreignKey:"shippingOwner"});
+    Shipping.hasMany(User,{as:"UserShipping",foreignKey:"shippingOwner"});
     //ShippingStatusHistory -> Shipping
     ShippingStatusHistory.belongsTo(Shipping,{as:"ShippingStatusHistoryHasShipping",foreignKey:"shippingStatusHistoryShipping"});
     Shipping.hasMany(ShippingStatusHistory,{as:"ShippingShippingStatusHistory",foreignKey:"shippingStatusHistoryShipping"});

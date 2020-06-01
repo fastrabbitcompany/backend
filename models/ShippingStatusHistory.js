@@ -24,7 +24,7 @@ module.exports = sequelize.define('ShippingStatusHistory', {
     },
     shippingStatusHistoryEmployee:{
         type: Sequelize.BIGINT,
-        allowNull: false,
+        allowNull: true,
         references:{
             model:"Employee",
             key:"employeeId"
@@ -32,7 +32,8 @@ module.exports = sequelize.define('ShippingStatusHistory', {
     },
     shippingStatusHistoryStatus:{
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue:0
     }
 }, {
     tableName: 'ShippingStatusHistory'
