@@ -68,7 +68,7 @@ module.exports.login = async (req, res) => {
                     attributes: [`RoleEmployee.roleName`]
                 });
                 let role = EmployeeRole ? EmployeeRole["RoleEmployee"]["roleName"]:null;
-                let token = auth.createToken({username});
+                let token = auth.createToken({username,id});
                 res.json({
                     success: true,
                     token,

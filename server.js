@@ -20,6 +20,7 @@ const AdminRoutes = require('./modules/admin/routes');
 const UserRoutes = require('./modules/user/routes');
 const CityRoutes = require('./modules/city/routes');
 const ConnectionRoutes = require('./modules/connection/routes');
+const ShippingRoutes = require('./modules/shipping/routes')
 
 app.all("*",(req,res,next) =>{
     logger.info("Incoming request: ", {method: req.method});
@@ -35,6 +36,7 @@ app.use('/api/auth',UserRoutes);
 app.use('/api/city',CityRoutes);
 app.use('/api/connection',ConnectionRoutes);
 app.use('/api/admin',AdminRoutes);
+app.use('/api/shipping',ShippingRoutes);
 
 // initilize the app
 app.listen(port,() =>{

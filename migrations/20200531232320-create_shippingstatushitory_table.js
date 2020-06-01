@@ -27,7 +27,7 @@ module.exports = {
       },
       shippingStatusHistoryEmployee:{
         type: Sequelize.BIGINT,
-        allowNull: false,
+        allowNull: true,
         references:{
           model:"Employee",
           key:"employeeId"
@@ -35,7 +35,8 @@ module.exports = {
       },
       shippingStatusHistoryStatus:{
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue:0
       },
       // Timestamps
       createdAt: Sequelize.DATE,

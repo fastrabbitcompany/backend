@@ -10,6 +10,9 @@ module.exports.getFromToken =(token) => {
 module.exports.getUsernameFromToken = async (token) =>{
     return jwt.verify(token,secret).username;
 }
+module.exports.getIdFromToken = async (token) =>{
+    return jwt.verify(token,secret).id;
+}
 module.exports.checkToken = async (token) =>{
     return jwt.verify(token,secret);
 }
