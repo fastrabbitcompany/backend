@@ -44,8 +44,8 @@ module.exports.createShipping = async (req, res) => {
 }
 module.exports.getAllShippings = async (req,res) =>{
     try{
-        // const {token} = req.body;
-        // await auth.checkToken(token);
+        const {token} = req.body;
+        await auth.checkToken(token);
         let shippings = await ShippingModel.findAll(
             {
                 attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"]],
