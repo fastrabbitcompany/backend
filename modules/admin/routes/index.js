@@ -6,7 +6,7 @@ var router = require('express').Router();
 const adminController = require('../controllers/index')
 
 router.post('/Employee',adminController.createEmployee)
-router.get('/Employee',adminController.getAllEmployees)
-router.put('/Employee',adminController.updateEmployee)
+router.post('/Employee',adminController.getAllEmployees)
+router.post('/Employee',adminController.updateEmployee)
 
 module.exports = router;
