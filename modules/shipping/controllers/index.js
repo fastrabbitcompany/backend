@@ -19,7 +19,7 @@ module.exports.createShipping = async (req, res) => {
         let shipping = await ShippingModel.create({...data, shippingOwner: userid});
         let routes = await RoutesModel.findAll({
             where: {
-                "routeConnection": 1
+                "routeConnection": data.shippingConnection
             },
             order: [['routeOrder', 'ASC']]
         })
