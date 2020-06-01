@@ -23,19 +23,13 @@ module.exports = {
         references: {
           model: 'Role',
           key: 'roleId'
-        }
-      },
-      employeeDni: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-      },
-      employeePin: {
-        type: Sequelize.STRING(4),
-        allowNull: false
+        },
+        defaultValue: 1
       },
       employeeIsActive: {
         type: Sequelize.BOOLEAN,
-        allowNull: true
+        allowNull: true,
+        defaultValue:1
       },
       // Timestamps
       createdAt: Sequelize.DATE,
