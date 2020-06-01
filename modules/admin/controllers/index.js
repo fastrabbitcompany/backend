@@ -2,15 +2,14 @@ const UserModel = require('../../../models/User');
 const EmployeeModel = require('../../../models/Employee');
 const RoleModel = require('../../../models/Role')
 const auth = require('../../auth');
-const Util = require('../../util' )
+const Util = require('../../util')
 
 //register method
 module.exports.createEmployee = async (req, res) => {
     try {
-       
         const data = req.body;
         Util.validateRegister(data);
-        data.password = util.hashPassword(data.password);
+        data.password = Util.hashPassword(data.password);
         const  createduser =  await UserModel.create(data);
         await EmployeeModel.create({...data,employeeUser:createduser.id});
         res.json({
