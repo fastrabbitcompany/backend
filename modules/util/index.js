@@ -1,3 +1,6 @@
+const bcrypt = require('bcryptjs');
+
+
 
 module.exports.validateRegister = (dataForm) => {
     if (!dataForm.username || dataForm.username === '') {
@@ -13,3 +16,14 @@ module.exports.validateRegister = (dataForm) => {
         throw new Error('password must have more than 5 characters');
     }
 }
+
+const saltRounds = 10;
+const salt = bcrypt.genSaltSync(saltRounds);
+
+module.exports.hashPassword = (password) => { 
+    hashedpassword = bcrypt.hashSync(password, salt);
+    return hashedpassword;
+}
+module.exports.comparePassword = (hashedPassword, password) => {
+    return bcrypt.compareSync(password, hashedPassword);
+};

@@ -3,15 +3,16 @@ const EmployeeModel = require('../../../models/Employee');
 const RoleModel = require('../../../models/Role')
 const auth = require('../../auth');
 const logger = require('../../../lib/logger')
+const util = require('../../util')
 
 //register method
 module.exports.register = async (req, res) => {
     try {
-
         const data = req.body;
-        validateRegister(data);
+        util.validateRegister(data);
+        data.password = util.hashPassword(data.password);
         await UserModel.create(data);
-        UserModel.create(data)
+
         res.json({
             success: true,
             message: 'user successfully created'
@@ -43,10 +44,12 @@ module.exports.login = async (req, res) => {
     try {
         const data = req.body;
         let {email, password} = data;
-        let user = await UserModel.findOne({where: {email, password}});
-        if (user === null) {
-            throw new Error("User doesn't exist");
-        } else {
+        let user = await UserModel.findOne({where: {email}});
+
+        if (user === null || !util.comparePassword(user.password,password) ) {
+            throw new Error("User or Password are wrong");
+        }
+         else {
             let {
                 username,
                 email,
