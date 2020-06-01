@@ -3,14 +3,16 @@ const EmployeeModel = require('../../../models/Employee');
 const RoleModel = require('../../../models/Role')
 const auth = require('../../auth');
 const logger = require('../../../lib/logger')
+const util = require('../../util')
 
 //register method
 module.exports.register = async (req, res) => {
     try {
-
         const data = req.body;
-        validateRegister(data);
+        util.validateRegister(data);
+        data.password = util.hashPassword(data.password);
         await UserModel.create(data);
+
         res.json({
             success: true,
             message: 'user successfully created'
@@ -42,10 +44,12 @@ module.exports.login = async (req, res) => {
     try {
         const data = req.body;
         let {email, password} = data;
-        let user = await UserModel.findOne({where: {email, password}});
-        if (user === null) {
-            throw new Error("User doesn't exist");
-        } else {
+        let user = await UserModel.findOne({where: {email}});
+
+        if (user === null || !util.comparePassword(user.password,password) ) {
+            throw new Error("User or Password are wrong");
+        }
+         else {
             let {
                 username,
                 email,
@@ -67,7 +71,7 @@ module.exports.login = async (req, res) => {
                     attributes: [`RoleEmployee.roleName`]
                 });
                 let role = EmployeeRole ? EmployeeRole["RoleEmployee"]["roleName"]:null;
-                let token = auth.createToken({username});
+                let token = auth.createToken({username,id});
                 res.json({
                     success: true,
                     token,
@@ -92,38 +96,6 @@ module.exports.checkToken = async (req, res) => {
         res.json({
             success: true,
             username
-        })
-    } catch (e) {
-        res.status(400).json({
-            success: false,
-            message: e.message
-        });
-    }
-}
-
-module.exports.getAllUsers = async (req, res) => {
-    try {
-        const data = req.body;
-        let {token} = data;
-        let username = await auth.checkToken(token);
-        let users = await EmployeeModel.findAll(
-            {
-                include: [
-                    {
-                        model: UserModel,
-                        as: "UserEmployee",
-                        required:false
-                    },
-                    {
-                        model: RoleModel,
-                        as: "RoleEmployee",
-                        required:false
-                    }
-                ]
-            });
-        res.json({
-            success: true,
-            users
         })
     } catch (e) {
         res.status(400).json({

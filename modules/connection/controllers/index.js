@@ -18,7 +18,8 @@ module.exports.getQuote = async (req, res) => {
             success: true,
             time:connection.time,
             distance:connection.distance,
-            price
+            price,
+            connectionTravel:connection.connectionId
         });
     } catch (error) {
         res.status(400).json({
