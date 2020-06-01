@@ -31,8 +31,8 @@ module.exports = async () =>{
     Connection.belongsTo(Location,{as:"ConnectionLocationB",foreignKey:"connectionLocationB"});
     Location.hasMany(Connection,{as:"ConnectB",foreignKey:"connectionLocationB"});
     //Connection -> Modality
-    Connection.belongsTo(Modality,{as:"ConnectionModality",foreignKey:"connectionModality"});
-    Modality.hasMany(Connection,{as:"ModalityConnection",foreignKey:"connectionModality"});
+    Connection.belongsTo(Modality,{foreignKey:"connectionModality"});
+    Modality.hasMany(Connection,{foreignKey:"connectionModality"});
     //Route -> Connection
     Route.belongsTo(Connection,{as:"RouteHasConnection",foreignKey:"routeConnection"});
     Connection.hasMany(Route,{as:"RouteConnection",foreignKey:"routeConnection"});

@@ -4,6 +4,7 @@ const RoutesModel = require('../../../models/Route')
 const EmployeeModel = require('../../../models/Employee')
 const LocationModel = require('../../../models/Location')
 const UserModel = require('../../../models/User')
+const ModalityModel = require('../../../models/Modality')
 const CityModel = require('../../../models/City')
 const Sequelize = require('sequelize');
 const ConnectionModel = require('../../../models/Connection')
@@ -51,7 +52,7 @@ module.exports.getAllShippings = async (req,res) =>{
                 attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"]],
                 include:[{
                     model:ShippingStatusModel,
-                    attributes:['shippingStatusHistoryStatus'],
+                    attributes:['shngStatusHistoryStatus'],
                     include:[{
                         model:RoutesModel,
                         attributes:['routeOrder'],
@@ -98,7 +99,7 @@ module.exports.getAllShippingsForUser = async (req,res) =>{
         const id = await  auth.getIdFromToken(token);
         let shippings = await ShippingModel.findAll(
             {
-                attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"]],
+                attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"],["createdAt","date"]],
                 include:[{
                     model:ShippingStatusModel,
                     attributes:['shippingStatusHistoryStatus'],
@@ -117,13 +118,16 @@ module.exports.getAllShippingsForUser = async (req,res) =>{
                     }]
                 },{
                     model:ConnectionModel,
-                    attributes:[],
+                    // attributes:[],
                     include:[{
                         model:LocationModel,
                         as:"ConnectionLocationB",
                         include: [{
                             model:CityModel,
                         }]
+                    },
+                    {
+                        model:ModalityModel
                     }]
                 },{
                     model:UserModel,
