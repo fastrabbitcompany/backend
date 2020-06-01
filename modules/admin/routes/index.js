@@ -5,8 +5,8 @@ var router = require('express').Router();
 // get the model
 const adminController = require('../controllers/index')
 
-router.post('/Employee',adminController.createEmployee)
-router.post('/Employee',adminController.getAllEmployees)
-router.post('/Employee',adminController.updateEmployee)
+router.post('/createemployee',adminController.createEmployee)
+router.post('/getallemployee',adminController.getAllEmployees)
+router.post('/updateemployee',adminController.updateEmployee)
 
 module.exports = router;
