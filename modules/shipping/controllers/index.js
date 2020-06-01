@@ -49,10 +49,10 @@ module.exports.getAllShippings = async (req,res) =>{
         await auth.checkToken(token);
         let shippings = await ShippingModel.findAll(
             {
-                attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"]],
+                attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"],[Sequelize.col('Connection.ConnectionLocationA.City.cityName'),"Origen"]],
                 include:[{
                     model:ShippingStatusModel,
-                    attributes:['shngStatusHistoryStatus'],
+                    attributes:['shippingStatusHistoryStatus'],
                     include:[{
                         model:RoutesModel,
                         attributes:['routeOrder'],
@@ -76,7 +76,18 @@ module.exports.getAllShippings = async (req,res) =>{
                             model:CityModel,
                         }]
                     }]
-                }]
+                },
+                    {
+                        model:ConnectionModel,
+                        attributes:[],
+                        include:[{
+                            model:LocationModel,
+                            as:"ConnectionLocationA",
+                            include: [{
+                                model:CityModel,
+                            }]
+                        }]
+                    }]
              }
         )
         res.json({
