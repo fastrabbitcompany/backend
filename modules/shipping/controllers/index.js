@@ -56,8 +56,9 @@ module.exports.getAllShippings = async (req,res) =>{
                         model:RoutesModel,
                         attributes:['routeOrder'],
                         include:[{
-                            attributes:['locationDescription'],
                             model:LocationModel,
+                            attributes:['locationDescription'],
+                            raw: true,
                             include:{
                                 model:CityModel,
                                 attributes:['cityName']
@@ -77,6 +78,12 @@ module.exports.getAllShippings = async (req,res) =>{
                 }]
              }
         )
+        let shi = await shippings.map(async (e) =>{
+            console.log(e)
+            await e.ShippingStatusHistories.map(async (el)=>{
+                el['cityStatus'] = el.Route.Location.City
+            })
+        })
         res.json({
             success: true,
             shippings

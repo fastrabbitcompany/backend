@@ -19,8 +19,8 @@ module.exports = async () =>{
     Employee.belongsTo(Role,{as:"RoleEmployee",foreignKey:"employeeRole"});
     Role.hasMany(Employee,{as:"RoleEmployee",foreignKey:"employeeRole"})
     //Countru <- City
-    City.belongsTo(Country,{as:"CityCountry",foreignKey:"cityCountry"});
-    Country.hasMany(City,{as:"Cities",foreignKey:"cityCountry"});
+    City.belongsTo(Country,{foreignKey:"cityCountry"});
+    Country.hasMany(City,{foreignKey:"cityCountry"});
     //location -> City
     Location.belongsTo(City,{foreignKey:"locationCity"});
     City.hasMany(Location,{foreignKey:"locationCity"});
