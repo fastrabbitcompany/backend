@@ -10,6 +10,7 @@ module.exports.createEmployee = async (req, res) => {
        
         const data = req.body;
         Util.validateRegister(data);
+        data.password = util.hashPassword(data.password);
         const  createduser =  await UserModel.create(data);
         await EmployeeModel.create({...data,employeeUser:createduser.id});
         res.json({
