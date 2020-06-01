@@ -23,12 +23,12 @@ const ConnectionRoutes = require('./modules/connection/routes');
 const ShippingRoutes = require('./modules/shipping/routes')
 
 app.all("*",(req,res,next) =>{
-    logger.info("Incoming request: ", {method: req.method});
- /*   logger.info("Incoming request verbose",{
+   logger.info("Incoming request: ", {method: req.method});
+   logger.info("Incoming request verbose",{
         headers:req.headers,
         query:req.query,
         body:req.body
-    }); */
+    });
     return next();
 })
 

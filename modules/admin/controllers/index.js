@@ -44,8 +44,11 @@ module.exports.getAllEmployees = async (req, res) => {
                         as: "RoleEmployee",
                         required:false
                     }
-                ]
-            }); 
+                ],
+               where:{
+                    enployeeIsActive:1
+               }
+            });
 
         res.json({
             success: true,
