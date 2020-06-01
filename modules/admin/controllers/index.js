@@ -46,7 +46,7 @@ module.exports.getAllEmployees = async (req, res) => {
                     }
                 ],
                where:{
-                    enployeeIsActive:1
+                    employeeIsActive:1
                }
             });
 
