@@ -163,7 +163,6 @@ module.exports.getAllShippingsForUser = async (req,res) =>{
 
 module.exports.chageState = async (req,res) =>{
     try{
-        let message = ""
         let {token,shippingStatusHistoryShipping,shippingStatusHistoryRoute} = req.body;
         await auth.checkToken(token)
         let respom = await ShippingStatusModel.update({
@@ -174,14 +173,13 @@ module.exports.chageState = async (req,res) =>{
                 shippingStatusHistoryRoute
             }
         })
-        // if(respom.lenght >0){
-        //     message = "Updated shipping"
-        // }else{
-        //     throw new Error("No register")
-        // }
+        console.log(respom[0])
+        if(respom[0] === 0){
+            throw new Error("No register");
+         }
         res.json({
             success: true,
-            message
+            message:"Shipping updated"
         });
     }catch
         (error) {
