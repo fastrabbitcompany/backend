@@ -8,4 +8,5 @@ const ShippingControllers = require('../controllers/index')
 router.post('/createshipping', ShippingControllers.createShipping);
 router.post('/getshippings',ShippingControllers.getAllShippings);
 router.post('/getshippingsuser',ShippingControllers.getAllShippingsForUser);
+router.post('/changestate',ShippingControllers.chageState);
 module.exports = router;

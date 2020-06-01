@@ -160,3 +160,29 @@ module.exports.getAllShippingsForUser = async (req,res) =>{
         });
     }
 }
+
+module.exports.chageState = async (req,res) =>{
+    try{
+        let {token,shippingStatusHistoryShipping,shippingStatusHistoryRoute} = req.body;
+        await auth.checkToken(token)
+        await ShippingStatusModel.update({
+            shippingStatusHistoryRoute:1
+        },{
+            where:{
+                shippingStatusHistoryShipping,
+                shippingStatusHistoryRoute
+            }
+        })
+        res.json({
+            success: true,
+            message:"Shipping updated"
+        });
+    }catch
+        (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
+
+}
