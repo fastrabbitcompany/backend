@@ -2,6 +2,11 @@ const ShippingModel = require('../../../models/Shipping')
 const ShippingStatusModel = require('../../../models/ShippingStatusHistory')
 const RoutesModel = require('../../../models/Route')
 const EmployeeModel = require('../../../models/Employee')
+const LocationModel = require('../../../models/Location')
+const UserModel = require('../../../models/User')
+const CityModel = require('../../../models/City')
+const Sequelize = require('sequelize');
+const ConnectionModel = require('../../../models/Connection')
 const auth = require('../../auth');
 
 module.exports.createShipping = async (req, res) => {
@@ -37,4 +42,50 @@ module.exports.createShipping = async (req, res) => {
         });
     }
 }
-// module.
+module.exports.getAllShippings = async (req,res) =>{
+    try{
+        // const {token} = req.body;
+        // await auth.checkToken(token);
+        let shippings = await ShippingModel.findAll(
+            {
+                attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"]],
+                include:[{
+                    model:ShippingStatusModel,
+                    attributes:['shippingStatusHistoryStatus'],
+                    include:[{
+                        model:RoutesModel,
+                        attributes:['routeOrder'],
+                        include:[{
+                            attributes:['locationDescription'],
+                            model:LocationModel,
+                            include:{
+                                model:CityModel,
+                                attributes:['cityName']
+                            }
+                        }]
+                    }]
+                },{
+                    model:ConnectionModel,
+                    attributes:[],
+                    include:[{
+                        model:LocationModel,
+                        as:"ConnectionLocationB",
+                        include: [{
+                            model:CityModel,
+                        }]
+                    }]
+                }]
+             }
+        )
+        res.json({
+            success: true,
+            shippings
+        });
+    }catch
+        (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
+}

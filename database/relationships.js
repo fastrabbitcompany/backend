@@ -8,7 +8,7 @@ const Location = require('../models/Location')
 const Modality = require('../models/Modality')
 const Connection = require('../models/Connection')
 const Route = require('../models/Route')
-const Shipping = require('../models/Route')
+const Shipping = require('../models/Shipping')
 const ShippingStatusHistory = require('../models/ShippingStatusHistory')
 module.exports = async () =>{
     //create the relations
@@ -22,8 +22,8 @@ module.exports = async () =>{
     City.belongsTo(Country,{as:"CityCountry",foreignKey:"cityCountry"});
     Country.hasMany(City,{as:"Cities",foreignKey:"cityCountry"});
     //location -> City
-    Location.belongsTo(City,{as:"LocationCity",foreignKey:"locationCity"});
-    City.hasMany(Location,{as:"locations",foreignKey:"locationCity"});
+    Location.belongsTo(City,{foreignKey:"locationCity"});
+    City.hasMany(Location,{foreignKey:"locationCity"});
     //connections -> Locations
     Connection.belongsTo(Location,{as:"ConnectionLocationA",foreignKey:"connectionLocationA"});
     Location.hasMany(Connection,{as:"ConnectA",foreignKey:"connectionLocationA"});
@@ -37,17 +37,17 @@ module.exports = async () =>{
     Route.belongsTo(Connection,{as:"RouteHasConnection",foreignKey:"routeConnection"});
     Connection.hasMany(Route,{as:"RouteConnection",foreignKey:"routeConnection"});
     //Route -> Location
-    Route.belongsTo(Location,{as:"RouteHasLocation",foreignKey:"routeLocation"});
-    Location.hasMany(Route,{as:"RouteLocation",foreignKey:"routeLocation"});
-    //Connection -> Shipping
-    Connection.belongsTo(Shipping,{as:"ShippingHasConnection",foreignKey:"shippingConnection"});
-    Shipping.hasMany(Connection,{as:"ShippingConnection",foreignKey:"shippingConnection"});
-    //User -> Shipping
-    User.belongsTo(Shipping,{as:"ShippingHasUser",foreignKey:"shippingOwner"});
-    Shipping.hasMany(User,{as:"UserShipping",foreignKey:"shippingOwner"});
+    Route.belongsTo(Location,{foreignKey:"routeLocation"});
+    Location.hasMany(Route,{foreignKey:"routeLocation"});
+    //Shipping -> Connection
+    Shipping.belongsTo(Connection,{foreignKey:"shippingConnection"});
+    Connection.hasMany(Shipping,{foreignKey:"shippingConnection"});
+    //Shipping -> User
+    Shipping.belongsTo(User,{foreignKey:"shippingOwner"});
+    User.hasMany(Shipping,{foreignKey:"shippingOwner"});
     //ShippingStatusHistory -> Shipping
-    ShippingStatusHistory.belongsTo(Shipping,{as:"ShippingStatusHistoryHasShipping",foreignKey:"shippingStatusHistoryShipping"});
-    Shipping.hasMany(ShippingStatusHistory,{as:"ShippingShippingStatusHistory",foreignKey:"shippingStatusHistoryShipping"});
+    ShippingStatusHistory.belongsTo(Shipping,{foreignKey:"shippingStatusHistoryShipping"});
+    Shipping.hasMany(ShippingStatusHistory,{foreignKey:"shippingStatusHistoryShipping"});
     //ShippingStatusHistory -> employee
     ShippingStatusHistory.belongsTo(Employee,{foreignKey:"shippingStatusHistoryEmployee"});
     Employee.hasMany(ShippingStatusHistory,{foreignKey:"shippingStatusHistoryEmployee"});

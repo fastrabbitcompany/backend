@@ -4,7 +4,7 @@ const auth = require('../../auth')
 module.exports.getall = async (req, res) => {
     try {
         const token = req.body.token;
-        await  auth.checkToken(token);
+        await auth.checkToken(token);
         let cities = await CityModel.findAll();
         res.json({
             success: true,
