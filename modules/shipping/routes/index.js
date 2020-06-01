@@ -7,4 +7,5 @@ const ShippingControllers = require('../controllers/index')
 
 router.post('/createshipping', ShippingControllers.createShipping);
 router.get('/getshippings',ShippingControllers.getAllShippings);
+router.post('/getshippingsuser',ShippingControllers.getAllShippingsForUser);
 module.exports = router;

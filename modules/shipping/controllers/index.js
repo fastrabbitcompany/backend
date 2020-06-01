@@ -78,12 +78,61 @@ module.exports.getAllShippings = async (req,res) =>{
                 }]
              }
         )
-        let shi = await shippings.map(async (e) =>{
-            console.log(e)
-            await e.ShippingStatusHistories.map(async (el)=>{
-                el['cityStatus'] = el.Route.Location.City
-            })
-        })
+        res.json({
+            success: true,
+            shippings
+        });
+    }catch
+        (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
+module.exports.getAllShippingsForUser = async (req,res) =>{
+    try{
+        const {token} = req.body;
+        await auth.checkToken(token);
+        const id = await  auth.getIdFromToken(token);
+        let shippings = await ShippingModel.findAll(
+            {
+                attributes:['shippingId',[Sequelize.col('Connection.ConnectionLocationB.City.cityName'),"Destination"]],
+                include:[{
+                    model:ShippingStatusModel,
+                    attributes:['shippingStatusHistoryStatus'],
+                    include:[{
+                        model:RoutesModel,
+                        attributes:['routeOrder'],
+                        include:[{
+                            model:LocationModel,
+                            attributes:['locationDescription'],
+                            raw: true,
+                            include:{
+                                model:CityModel,
+                                attributes:['cityName']
+                            }
+                        }]
+                    }]
+                },{
+                    model:ConnectionModel,
+                    attributes:[],
+                    include:[{
+                        model:LocationModel,
+                        as:"ConnectionLocationB",
+                        include: [{
+                            model:CityModel,
+                        }]
+                    }]
+                },{
+                    model:UserModel,
+                    where:{
+                        id
+                    }
+                }]
+            }
+        )
         res.json({
             success: true,
             shippings
