@@ -167,18 +167,18 @@ module.exports.chageState = async (req,res) =>{
         let {token,shippingStatusHistoryShipping,shippingStatusHistoryRoute} = req.body;
         await auth.checkToken(token)
         let respom = await ShippingStatusModel.update({
-            shippingStatusHistoryRoute:1
+            shippingStatusHistoryStatus:1
         },{
             where:{
                 shippingStatusHistoryShipping,
                 shippingStatusHistoryRoute
             }
         })
-        if((respom)){
-            message = "Updated shipping"
-        }else{
-            throw new Error("No register")
-        }
+        // if(respom.lenght >0){
+        //     message = "Updated shipping"
+        // }else{
+        //     throw new Error("No register")
+        // }
         res.json({
             success: true,
             message
