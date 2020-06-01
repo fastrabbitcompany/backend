@@ -55,7 +55,7 @@ module.exports.getAllShippings = async (req,res) =>{
                     attributes:['shippingStatusHistoryStatus'],
                     include:[{
                         model:RoutesModel,
-                        attributes:['routeOrder'],
+                        attributes:['routeOrder',"routeId"],
                         include:[{
                             model:LocationModel,
                             attributes:['locationDescription'],
@@ -163,9 +163,10 @@ module.exports.getAllShippingsForUser = async (req,res) =>{
 
 module.exports.chageState = async (req,res) =>{
     try{
+        let message = ""
         let {token,shippingStatusHistoryShipping,shippingStatusHistoryRoute} = req.body;
         await auth.checkToken(token)
-        await ShippingStatusModel.update({
+        let respom = await ShippingStatusModel.update({
             shippingStatusHistoryRoute:1
         },{
             where:{
@@ -173,9 +174,14 @@ module.exports.chageState = async (req,res) =>{
                 shippingStatusHistoryRoute
             }
         })
+        if((respom)){
+            message = "Updated shipping"
+        }else{
+            throw new Error("No register")
+        }
         res.json({
             success: true,
-            message:"Shipping updated"
+            message
         });
     }catch
         (error) {
