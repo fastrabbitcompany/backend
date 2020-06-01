@@ -24,19 +24,17 @@ module.exports.createShipping = async (req, res) => {
                 "shippingStatusHistoryRoute": route.routeId
             })
         })
-    res.json({
-        success: true,
-        message: 'shipping successfully created'
-    });
+        res.json({
+            success: true,
+            message: 'shipping successfully created',
+            idShipping:shipping.shippingId
+        });
+    } catch
+        (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
 }
-catch
-(error)
-{
-    res.status(400).json({
-        success: false,
-        message: error.message
-    });
-}
-
-
-}
+// module.
