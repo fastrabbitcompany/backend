@@ -30,7 +30,7 @@ module.exports.getAllEmployees = async (req, res) => {
     try {
         const data = req.body;
         let {token} = data;
-        let username = await auth.checkToken(token);
+        await auth.checkToken(token);
         let users = await EmployeeModel.findAll(
            {
                 include: [

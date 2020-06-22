@@ -25,7 +25,7 @@ module.exports.register = async (req, res) => {
     }
 };
 
-validateRegister = (dataForm) => {
+const validateRegister = (dataForm) => {
     if (!dataForm.username || dataForm.username === '') {
         throw new Error('name parameter is required');
     }
@@ -52,7 +52,7 @@ module.exports.login = async (req, res) => {
          else {
             let {
                 username,
-                email,
+                emaila,
                 id
             } = user;
             let EmployeeRole = await EmployeeModel.findOne(
@@ -77,7 +77,7 @@ module.exports.login = async (req, res) => {
                     token,
                     role,
                     username,
-                    email
+                    email: emaila
                 });
         }
     } catch (e) {
