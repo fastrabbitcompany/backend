@@ -1,5 +1,8 @@
 const ConnectionModel = require('../../../models/Connection');
 const auth = require('../../auth');
+// Factories
+let DeliveryFactory = require("../../../desing/delivery/DeliveryFactory");
+
 module.exports.getQuote = async (req, res) => {
     try {
         const {token,origen,destino,type,volumen,peso} = req.body;
@@ -13,7 +16,11 @@ module.exports.getQuote = async (req, res) => {
                 }
             }
         );
-        let price = parseInt(volumen)*parseInt(connection.priceVolume) + parseInt(peso)*parseInt(connection.priceWeight) + parseInt(connection.priceDistance);
+        console.log(peso)
+        let fac = new DeliveryFactory();
+        let delivery = await fac.createDelivery(type,volumen,peso,connection.priceVolume,connection.priceWeight,connection.priceDistance)
+        console.log(delivery)
+        let price = delivery.calculatePrice();
         res.json({
             success: true,
             time:connection.time,
