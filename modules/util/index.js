@@ -21,7 +21,7 @@ const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
 
 module.exports.hashPassword = (password) => { 
-    hashedpassword = bcrypt.hashSync(password, salt);
+    let hashedpassword = bcrypt.hashSync(password, salt);
     return hashedpassword;
 }
 module.exports.comparePassword = (hashedPassword, password) => {
