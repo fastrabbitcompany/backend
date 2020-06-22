@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const config = require('../config/config.json')["development"];
 let newconfig = {
     ...config,
+    logging: false,
     define: {
         timestamps: false
     }};
