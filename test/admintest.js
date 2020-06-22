@@ -6,10 +6,10 @@ chai.use(chaiHttp);
 chai.should()
 // const url= 'http://localhost:3000';
 let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvdGFsb3JhZm94MiIsImlkIjoxMjIsImlhdCI6MTU5Mjg1MzM2NSwiZXhwIjoxNTkyOTM5NzY1fQ.FXG6ofnEE4VtVeAG4Loe4KxcSt5I1dqgSgc5trsckgU'
-let username = "luise99a32a"
-let employee = "asdasdasd929aa"
+let username = "luise99a32aa"
+let employee = "asdasdasd929aaa"
 
-testurl = (message,url,data) =>{
+const testurl = (message,url,data) =>{
     it(message, function (done) {
         chai.request(app)
             .post(url)
