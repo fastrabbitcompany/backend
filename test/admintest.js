@@ -9,7 +9,7 @@ let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvdGFsb3JhZm
 let username = "luise99a32aa"
 let employee = "asdasdasd929aaa"
 
-testurl = (message,url,data) =>{
+const testurl = (message,url,data) =>{
     it(message, function (done) {
         chai.request(app)
             .post(url)
