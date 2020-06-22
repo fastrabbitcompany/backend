@@ -1,5 +1,5 @@
 const Delivery =require("./delivery");
-module.expots = class Maritime extends Delivery{
+module.exports = class Maritime extends Delivery{
     constructor(v,w,pv,pw,pd) {
         super(v,w,pv,pw,pd);
         this.constantdis = 0.70
