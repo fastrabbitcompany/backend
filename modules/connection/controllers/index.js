@@ -16,10 +16,8 @@ module.exports.getQuote = async (req, res) => {
                 }
             }
         );
-        console.log(peso)
         let fac = new DeliveryFactory();
         let delivery = await fac.createDelivery(type,volumen,peso,connection.priceVolume,connection.priceWeight,connection.priceDistance)
-        console.log(delivery)
         let price = delivery.calculatePrice();
         res.json({
             success: true,
