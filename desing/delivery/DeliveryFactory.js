@@ -10,7 +10,6 @@ module.exports = class DeliveryFactory {
     }
     createDelivery(td,v,w,pv,pw,pd){
         let d;
-        console.log("peso " + w)
         switch (td) {
             case "1":
                 return (new Ground(v,w,pv,pw,pd))

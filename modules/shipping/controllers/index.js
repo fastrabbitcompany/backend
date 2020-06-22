@@ -23,7 +23,7 @@ module.exports.createShipping = async (req, res) => {
             },
             order: [['routeOrder', 'ASC']]
         })
-        console.log(routes)
+        // console.log(routes)
         await routes.forEach((route) => {
             ShippingStatusModel.create({
                 "shippingStatusHistoryShipping": shipping.shippingId,
@@ -173,7 +173,6 @@ module.exports.chageState = async (req,res) =>{
                 shippingStatusHistoryRoute
             }
         })
-        console.log(respom[0])
         if(respom[0] === 0){
             throw new Error("No register");
          }
