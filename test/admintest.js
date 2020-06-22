@@ -5,196 +5,100 @@ let app = require("../server")
 chai.use(chaiHttp);
 chai.should()
 // const url= 'http://localhost:3000';
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvdGFsb3JhZm94MiIsImlkIjoxMjIsImlhdCI6MTU5Mjg1MzM2NSwiZXhwIjoxNTkyOTM5NzY1fQ.FXG6ofnEE4VtVeAG4Loe4KxcSt5I1dqgSgc5trsckgU'
+let username = "luise99a32a"
+let employee = "asdasdasd929aa"
 
-let token = ''
-let username = "asdasdaddsd"
-let employee = "asasdaaadda"
+testurl = (message,url,data) =>{
+    it(message, function (done) {
+        chai.request(app)
+            .post(url)
+            .send(data)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                done()
+            })
+    });
+}
 describe("Test Services user ", function () {
-    it("Create User response OK", function (done) {
-        chai.request(app)
-            .post("/api/auth/sign-up")
-            .send({
-                username,
-                "email": username+"@unal.edu.co",
-                "password": "12345678",
-                "phoneNumber": "3118775720",
-                "firstName": "Luis",
-                "lastName": "Otalora",
-                "address": "Calle 23D 111-24"
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Create User response OK","/api/auth/sign-up",{
+        username,
+        "email": username+"@unal.edu.co",
+        "password": "12345678",
+        "phoneNumber": "3118775720",
+        "firstName": "Luis",
+        "lastName": "Otalora",
+        "address": "Calle 23D 111-24"
     })
-    it("Create Login response OK", function (done) {
-        chai.request(app)
-            .post("/api/auth/login")
-            .send({
-                "email": "lotalorafoxa2@unal.edu.co",
-                "password": "12345678"
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                token = res.body.token;
-                done()
-            })
+    testurl("Create Login response OK","/api/auth/login",{
+        "email": "lotalorafox2@unal.edu.co",
+        "password": "12345678"
     })
-
-
 
 });
 
 describe("GETS ", () => {
-    it("Get locations OK", function (done) {
-        chai.request(app)
-            .post("/api/city/getall")
-            .send({
-                token
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    console.log("token" + token)
+    testurl("Get locations OK","/api/city/getall",{
+        "token":token
     })
-    it("Get shipings user OK", function (done) {
-        chai.request(app)
-            .post("/api/shipping/getshippingsuser")
-            .send({
-                token
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Get shipings user OK","/api/shipping/getshippingsuser",{
+        token
     })
-    it("Get all shipings OK", function (done) {
-        chai.request(app)
-            .post("/api/shipping/getshippings")
-            .send({
-                token
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Get all shipings OK","/api/shipping/getshippings",{
+        token
     })
-    it("Get all employees OK", function (done) {
-        chai.request(app)
-            .post("/api/admin/getallemployee")
-            .send({
-                token
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Get all employees OK","/api/admin/getallemployee",{
+        token
     })
-    it("Check token", function (done) {
-        chai.request(app)
-            .post("/api/auth/check")
-            .send({
-                token
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Check token OK","/api/auth/check",{
+        token
     })
-
-    it("Get Quote destiny OK", function (done) {
-        chai.request(app)
-            .post("/api/connection/quote")
-            .send({
-                "type": "1",
-                "envio": "1",
-                "origen": "1",
-                "destino": "2",
-                "volumen": "54",
-                token,
-                "peso": "12"
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Get Quote destiny OK","/api/connection/quote",{
+        "type": "1",
+        "envio": "1",
+        "origen": "1",
+        "destino": "2",
+        "volumen": "54",
+        token,
+        "peso": "12"
     })
 })
 
 describe("Update",()=>{
-    it("Update employee", function (done) {
-        chai.request(app)
-            .post("/api/admin/updateemployee")
-            .send({
-                "username": "lotalorafox1",
-                "employeeIsActive": "1",
-                token
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Update employee","/api/admin/updateemployee",{
+        "username": "lotalorafox1",
+        "employeeIsActive": "1",
+        token
     })
-    it("Update status shipping", function (done) {
-        chai.request(app)
-            .post("/api/shipping/changestate")
-            .send({
-                shippingStatusHistoryShipping:"11",
-                shippingStatusHistoryRoute:"969",
-                token
-            })
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done()
-            })
+    testurl("Update status shipping","/api/shipping/changestate",{
+        shippingStatusHistoryShipping:"11",
+        shippingStatusHistoryRoute:"969",
+        token
     })
 })
 describe("Create", ()=>{
-    it("CreateEmployee response OK", function(done) {
-      chai.request(app)
-        .post('/api/admin/createemployee')
-        .send({"username":employee,
-          "email":employee+"@unal.edu.co",
-          "password":"12345678",
-          "phoneNumber":"3118775720",
-          "firstName":"Luis",
-          "lastName":"Otalora",
-          "address":"Calle 23D 111-24",
-          "employeeDni":"1234567",
-          "employeePin":"1345678",
-          "employeeIsActive":"1",
-          "employeeRole":"1"
-        })
-        .end( function(err,res){
-          expect(res).to.have.status(200);
-          done();
-        });
-    });
-    it("Create Shipping response OK", function(done) {
-        chai.request(app)
-            .post('/api/shipping/createshipping')
-            .send({
-                "shippingDescription":"un envio",
-                "shippingWidth":"14",
-                "shippingHeight":"21",
-                "shippingWeight":"54",
-                "shippingPrice":"65465.46",
-                "shippingConnection":"1",
-                token
-            })
-            .end( function(err,res){
-                expect(res).to.have.status(200);
-                done();
-            });
-    });
+    testurl("CreateEmployee response OK",'/api/admin/createemployee',{"username":employee,
+        "email":employee+"@unal.edu.co",
+        "password":"12345678",
+        "phoneNumber":"3118775720",
+        "firstName":"Luis",
+        "lastName":"Otalora",
+        "address":"Calle 23D 111-24",
+        "employeeDni":"1234567",
+        "employeePin":"1345678",
+        "employeeIsActive":"1",
+        "employeeRole":"1"
+    })
+    testurl("Create Shipping response OK",'/api/shipping/createshipping',{
+        "shippingDescription":"un envio",
+        "shippingWidth":"14",
+        "shippingHeight":"21",
+        "shippingWeight":"54",
+        "shippingPrice":"65465.46",
+        "shippingConnection":"1",
+        token
+    })
+
 })
